@@ -1,5 +1,9 @@
 # @xaked/panel
 
+[![License](https://img.shields.io/badge/License-apache--2.0-green.svg?longCache=true&style=flat-square)](https://github.com/xaked/panel/blob/master/LICENSE)
+[![Project web site](https://img.shields.io/badge/Project%20site-panel.xaked.com-blue.svg?longCache=true&style=flat-square)](https://panel.xaked.com/)
+[![Developer web site](https://img.shields.io/badge/Developer%20site-xaked.com-blue.svg?longCache=true&style=flat-square)](https://xaked.com/)
+
 ## Project setup
 ```
 npm install
@@ -30,5 +34,8 @@ npm run lint
 npm run test:unit
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Author
+
+Copyright © **[iSm1le](https://github.com/iSm1le/)**, Released under the [Apache 2.0](https://github.com/iSm1le/kpois-pages/blob/master/LICENSE) license.
+
+Authored and maintained by [iSm1le](https://github.com/iSm1le)

@@ -1,0 +1,17 @@
+/* General */
+$mainColor: #F7F7F8;
+$accentColor: #0C2427;
+$background: #DA304C;
+
+/* Header */
+$headerHeight: 56px;
+
+/* Sidebar */
+$sideBarOpenedWidth: 200px;
+$sideBarClosedWidth: 0px;
+$itemActive: darken($accentColor, 5%);
+$itemHovered: darken($accentColor, 15%);
+$itemBorderColor: white;
+
+/* Dashboard */
+$dashboardbg: lighten($accentColor, 10%);

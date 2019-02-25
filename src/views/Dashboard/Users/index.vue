@@ -7,7 +7,18 @@
             <b-form-select dark :options="pageOptions" v-model="perPage" />
           </b-form-group>
         </b-col>
-        <b-table :busy="loading" dark small responsive striped hover :items='items' :fields="fields" :current-page="currentPage" :per-page="perPage">
+        <b-table
+          :busy="loading"
+          dark
+          small
+          responsive
+          striped
+          hover
+          :items='items'
+          :fields="fields"
+          :current-page="currentPage"
+          :per-page="perPage"
+          :tbody-tr-class="isUserActive">
           <div slot="table-busy" class="text-center my-2">
             <b-spinner variant="primary" label="Spinning" />
           </div>
@@ -62,16 +73,25 @@ export default class Users extends Vue {
   private pageOptions = [10, 15, 20];
   private modalInfo = { title: '', content: '' };
 
+  private isUserActive(item: any, type: any) {
+    if (!item) {
+      return;
+    }
+    if (!item.active) {
+      return 'user-disabled';
+    }
+  }
+
   private info(item: any, index: any, button: any) {
-    this.modalInfo.title = `Row index: ${index}`
-    this.modalInfo.content = JSON.stringify(item, null, 2)
-    this.$root.$emit('bv::show::modal', 'modalInfo', button)
-  };
+    this.modalInfo.title = `Row index: ${index}`;
+    this.modalInfo.content = JSON.stringify(item, null, 2);
+    this.$root.$emit('bv::show::modal', 'modalInfo', button);
+  }
 
   private resetModal() {
-    this.modalInfo.title = ''
-    this.modalInfo.content = ''
-  };
+    this.modalInfo.title = '';
+    this.modalInfo.content = '';
+  }
 
   private async created() {
     this.fetchUsers();
@@ -97,5 +117,11 @@ export default class Users extends Vue {
   .row, .col, .table-responsive {
     max-height: 100%;
   }
+}
+</style>
+
+<style lang="scss">
+.user-disabled {
+  color: gray;
 }
 </style>

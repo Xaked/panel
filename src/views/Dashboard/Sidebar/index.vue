@@ -70,6 +70,7 @@ export default class Sidebar extends Vue {
   top: 0;
   height: 100%;
   transition: all .3s ease-out;
+  z-index: 100;
   button.openSidebar {
     position: fixed;
     top: .5rem;

@@ -42,6 +42,8 @@ export default class Dashboard extends Vue {
   width: 100%;
   height: 100%;
   transition: all .3s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   .app-container {
     height: 100%;

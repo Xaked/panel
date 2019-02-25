@@ -23,5 +23,6 @@ export default class Header extends Vue {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 </style>

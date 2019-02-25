@@ -4,15 +4,17 @@
     <hr>
     <router-link class="item" to="/dashboard">
       <font-awesome-icon icon="columns"/>
-      Dashboard
+      <span class="name">Dashboard</span>
     </router-link>
-    <router-link class="item" v-for="route in sidebarRoutes" :to="route.path" :key="route.name">
-      <font-awesome-icon v-if="route.meta.icon" :icon="route.meta.icon"/>
-      {{ route.name }}
-    </router-link>
+    <div v-if="sidebarRoutes" class="routes">
+      <router-link class="item" v-for="route in sidebarRoutes" :to="route.path" :key="route.name">
+        <font-awesome-icon v-if="route.meta.icon" :icon="route.meta.icon"/>
+        <span class="name">{{ route.name }}</span>
+      </router-link>
+    </div>
     <router-link class="item" to="/">
       <font-awesome-icon icon="sign-out-alt"/>
-      Exit
+      <span class="name">Exit</span>
     </router-link>
     <b-button variant="dark" class="openSidebar" @click="toggleSidebar()">
       <font-awesome-icon icon="bars"/>
@@ -78,39 +80,52 @@ export default class Sidebar extends Vue {
     text-overflow: clip;
     cursor: pointer;
   }
+  span.name::before {
+    content: ' ';
+  }
+  .item {
+    font-size: 1.3rem;
+    text-align: left;
+    width: $sideBarOpenedWidth;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
+    &:hover {
+      background: $itemHovered;
+    }
+
+    &.router-link-exact-active {
+      background: $itemActive;
+
+      &:hover {
+        background: $itemHovered;
+      }
+    }
+  }
   &.opened {
     width: $sideBarOpenedWidth;
+    span.name {
+      display: inline;
+    }
     button.openSidebar {
       display: none;
     }
     .caption::before {
       content: "XAKED";
     }
-    .item {
-      font-size: 1.3rem;
-      width: $sideBarOpenedWidth;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: clip;
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      display: block;
-
-      &:hover {
-        background: $itemHovered;
-      }
-
-      &.router-link-exact-active {
-        background: $itemActive;
-
-        &:hover {
-          background: $itemHovered;
-        }
-      }
-    }
   }
   &.closed {
     width: $sideBarClosedWidth;
+    span.name {
+      display: none;
+    }
     button.openSidebar {
       display: block;
     }
@@ -120,10 +135,8 @@ export default class Sidebar extends Vue {
     .item {
       font-size: 1.3rem;
       width: $sideBarClosedWidth;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: clip;
-      display: none;
+      padding: 8px;
+      text-align: center;
 
       &.router-link-exact-active {
         background: $itemActive;

@@ -35,7 +35,7 @@ export default new Router({
         {
         path: '/dashboard/rv',
         name: 'RV',
-        component: () => import(/* webpackChunkName: "dash-users" */ '@/views/Dashboard/RV/index.vue'),
+        component: () => import(/* webpackChunkName: "dash-rv" */ '@/views/Dashboard/RV/index.vue'),
         meta: {
           show: true,
           icon: 'video',

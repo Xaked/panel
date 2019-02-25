@@ -7,10 +7,12 @@
       <span class="name">Dashboard</span>
     </router-link>
     <div v-if="sidebarRoutes" class="routes">
-      <router-link class="item" v-for="route in sidebarRoutes" :to="route.path" :key="route.name">
-        <font-awesome-icon v-if="route.meta.icon" :icon="route.meta.icon"/>
-        <span class="name">{{ route.name }}</span>
-      </router-link>
+      <span v-for="route in sidebarRoutes" :key="route.name">
+        <router-link v-if="route.meta.show || true" class="item" :to="route.path">
+          <font-awesome-icon :icon="route.meta.icon || ''"/>
+          <span class="name">{{ route.name }}</span>
+        </router-link>
+      </span>
     </div>
     <router-link class="item" to="/">
       <font-awesome-icon icon="sign-out-alt"/>
